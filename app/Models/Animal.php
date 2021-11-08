@@ -14,4 +14,9 @@ class Animal extends Model
         'race',
         'age',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User');
+    }
 }
