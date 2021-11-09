@@ -14,6 +14,13 @@
                         <h3>
                             {{ $animal->name }}
                         </h3>
+                        <form action="/animals/{{ $animal->id }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <x-button class="ml-3 bg-red-700" type="submit">
+                                {{ __('Excluir') }}
+                            </x-button>
+                        </form>
                     </div>
                 </div>
                 @endforeach
