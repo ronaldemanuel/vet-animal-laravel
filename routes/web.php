@@ -20,6 +20,7 @@ Route::get('/', function () {
 
 Route::get('/dashboard', [AnimalController::class, 'index'])->middleware(['auth'])->name('dashboard');
 
+Route::put('animals/{id}', [AnimalController::class, 'update'])->middleware('auth');
 Route::resource('animals', AnimalController::class)->middleware('auth');
 
 require __DIR__ . '/auth.php';

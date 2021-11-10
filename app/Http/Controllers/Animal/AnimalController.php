@@ -46,7 +46,16 @@ class AnimalController extends Controller
             return redirect('dashboard');
         }
 
-        return view('animals.edit', ['animal' => $animal]);
+        return view('animals.edit', compact('animal'));
+    }
+
+    public function update(Request $request)
+    {
+        $data = $request->all();
+
+        Animal::findOrFail($request->id)->update($data);
+
+        return redirect('dashboard');
     }
 
     public function destroy($id)
