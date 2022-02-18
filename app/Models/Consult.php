@@ -5,14 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Animal extends Model
+class Consult extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'name',
-        'race',
-        'age',
+        'status',
+        'symptoms',
     ];
 
     public function user()
@@ -20,8 +19,8 @@ class Animal extends Model
         return $this->belongsTo('App\Models\User');
     }
 
-    public function consults()
+    public function animal()
     {
-        return $this->hasMany('App\Models\Consults');
+        return $this->belongsTo('App\Models\Animal');
     }
 }

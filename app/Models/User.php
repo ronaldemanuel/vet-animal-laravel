@@ -45,4 +45,9 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Models\Animal');
     }
+
+    public function consults()
+    {
+        return $this->hasMany('App\Models\Consult');
+    }
 }
