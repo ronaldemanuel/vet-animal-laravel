@@ -21,6 +21,11 @@
                     <x-nav-link :href="route('animals.create')" :active="request()->routeIs('animals.create')">
                         {{ __('Cadastrar animal') }}
                     </x-nav-link>
+
+                    <!-- Consults -->
+                    <x-nav-link :href="route('consults.index')" :active="request()->routeIs('consults.index')">
+                        {{ __('Consultas') }}
+                    </x-nav-link>
                 </div>
             </div>
 
