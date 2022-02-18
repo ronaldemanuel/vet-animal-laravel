@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Animal\AnimalController;
+use App\Http\Controllers\Consult\ConsultController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,8 +20,9 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', [AnimalController::class, 'index'])->middleware(['auth'])->name('dashboard');
-
 Route::put('animals/{id}', [AnimalController::class, 'update'])->middleware('auth');
 Route::resource('animals', AnimalController::class)->middleware('auth');
+Route::resource('consults', ConsultController::class)->middleware('auth');
+Route::put('consults/{id}/cancel', [ConsultController::class, 'cancel'])->name('consults.cancel')->middleware('auth');
 
 require __DIR__ . '/auth.php';
